@@ -13,7 +13,6 @@ Development: https://github.com/OpenModelica/OMPython
 
 OMPython is a Python interface that uses ZeroMQ to communicate with OpenModelica.
 
-
 Current build status
 ====================
 
