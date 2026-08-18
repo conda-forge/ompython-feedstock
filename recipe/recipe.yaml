@@ -1,0 +1,53 @@
+context:
+  version: "4.0.1"
+
+package:
+  name: ompython
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/O/OMPython/ompython-${{ version }}.tar.gz
+  sha256: 5d28b5f276b646ca947a8f0fb41029fdac329f49d4e96b335d01a8ad7ed897de
+
+build:
+  noarch: python
+  number: 1
+  script: python -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - numpy
+    - psutil
+    - pyparsing
+    - pyzmq
+  run_constraints:
+    - openmodelica >=1.26
+
+tests:
+  - python:
+      imports:
+        - OMPython
+      python_version: ${{ python_min }}.*
+  - script:
+      - python -c "from OMPython import OMCSessionZMQ; omc = OMCSessionZMQ(); print(omc.sendExpression('getVersion()'))"
+    requirements:
+      run:
+        - openmodelica >=1.26
+
+about:
+  homepage: https://github.com/OpenModelica/OMPython
+  license: LicenseRef-OSMC-PL
+  license_file: LICENSE
+  summary: "Python interface to OpenModelica."
+  description: |
+    OMPython is a Python interface that uses ZeroMQ to communicate with OpenModelica.
+  repository: https://github.com/OpenModelica/OMPython
+
+extra:
+  recipe-maintainers:
+    - adeas31
