@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/O/OMPython/ompython-${{ version }}.tar.gz
-  sha256: 510d38e6449b642eed6633ebf3b6046d6a16e469130f7396f168b0b0e3a0063
+  sha256: 5105d38e6449b642eed6633ebf3b6046d6a16e469130f7396f168b0b0e3a0063
 
 build:
   noarch: python
