@@ -1,5 +1,5 @@
 context:
-  version: "4.0.1"
+  version: "4.1.0"
 
 package:
   name: ompython
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/O/OMPython/ompython-${{ version }}.tar.gz
-  sha256: 5d28b5f276b646ca947a8f0fb41029fdac329f49d4e96b335d01a8ad7ed897de
+  sha256: 510d38e6449b642eed6633ebf3b6046d6a16e469130f7396f168b0b0e3a0063
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: python -m pip install . -vv
 
 requirements:
